@@ -1,0 +1,90 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,200,300,regular,500,600,700,800,900);
+.loginContainer {
+  height: 100vh;
+  width: 100vw;
+  background-color: #27262c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.loginFormContainer {
+  /* background-color: aqua; */
+  height: 40%;
+  width: 25%;
+}
+
+.position {
+  position: absolute;
+}
+.circle1 {
+  left: 0;
+  top: 0;
+}
+.circle2 {
+  top: 0;
+  right: 0;
+}
+.seats {
+  bottom: 0;
+  right: 0;
+}
+.cda {
+  bottom: 0;
+  left: 0;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  height: 350px;
+  width: 300px;
+}
+.loginH1 {
+  font-family: 'Roboto Slab';
+  font-size: 60px;
+  font-weight: 400;
+  height: 15%;
+}
+.FormLogin {
+  width: 100%;
+  height: 90%;
+}
+.inputsContainer {
+  height: 80%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.input {
+  margin: 10px 0px;
+  width: 100%;
+  height: 20%;
+  background-color: transparent;
+  border-right: none;
+  border-top: none;
+  border-left: none;
+  border-color: #fff;
+  outline: none;
+  color: #fff;
+  font-size: 18px;
+}
+.input::placeholder {
+  color: #999999;
+  font-size: 18px;
+  font-family: sans-serif;
+  color: #999999;
+}
+.buttonCOntainer {
+  /* background-color: aquamarine; */
+  height: 15%;
+}
+.sendButton {
+  background-color: #ffb905;
+  height: 100%;
+  width: 100%;
+  border: none;
+  color: #fff;
+  font-family: 'Roboto Slab';
+  font-size: 20px;
+}
