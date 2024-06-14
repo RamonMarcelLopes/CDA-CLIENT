@@ -137,8 +137,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .userImage {
   height: 40px;
   width: 40px;
+  border-radius: 50%;
 }

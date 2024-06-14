@@ -1,5 +1,18 @@
+import { useEffect, useState } from 'react';
+import { User } from '../../pages/Home';
 import './index.css';
+import { findUserService } from '../../services/user';
 const UserSettings = () => {
+  let [data, setdata] = useState<User>();
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  let getUser = async () => {
+    let response = await findUserService.user();
+    setdata(response.data);
+  };
   return (
     <>
       <div className="EditUserContainerAll">
@@ -15,6 +28,7 @@ const UserSettings = () => {
                 placeholder="nome"
                 className="inputForm"
                 type="text"
+                defaultValue={data?.name}
               />
               <label className="labelEdit" htmlFor="email">
                 Email:
@@ -24,6 +38,7 @@ const UserSettings = () => {
                 placeholder="email"
                 className="inputForm"
                 type="text"
+                defaultValue={data?.email}
               />
               <label className="labelEdit" htmlFor="senha">
                 Senha:
@@ -40,8 +55,8 @@ const UserSettings = () => {
             <div className="containerShowImage">
               <img
                 className="imgProfile"
-                src="https://jacaimages.vercel.app/imgs/icons/defaultUser.jpg"
-                alt=""
+                src={data?.profilePicture}
+                alt={`foto de perfil do(a) ${data?.name}`}
               />
             </div>
             <div className="containerImageProfile">

@@ -5,11 +5,32 @@ import emblem from '../../assets/emblem.svg';
 import CardList from '../../components/CardList';
 import RedeemEmblem from '../../components/Redeem';
 import './index.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import UserSettings from '../../components/UserSettings';
+import { findUserService } from '../../services/user';
+
+export type User = {
+  id: string;
+  email: string;
+  name: string;
+  profilePicture: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
 const HomePage = () => {
-  let [currentePage, setCurrentPage] = useState<string>();
+  let [currentePage, setCurrentPage] = useState<string>('cardList');
   let [page, setPage] = useState(<CardList />);
+  let [data, setdata] = useState<User>();
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  let getUser = async () => {
+    let response = await findUserService.user();
+    setdata(response.data);
+  };
   return (
     <>
       <div className="containerAll">
@@ -58,17 +79,23 @@ const HomePage = () => {
             <header className="header">
               <div className="dashboardH1Container">Dashboard</div>
               <div className="userContainer">
-                <div className="circle">
+                <div
+                  onClick={() => {
+                    setCurrentPage('UserSettings');
+                    setPage(<UserSettings />);
+                  }}
+                  className="circle"
+                >
                   <img
-                    src="https://jacaimages.vercel.app/imgs/logos/jacareimage.png"
-                    alt=""
+                    src={data?.profilePicture}
+                    alt={`foto de perfil do usuario ${data?.name}`}
                     className="userImage"
                   />
                 </div>
               </div>
             </header>
             <div className="helloContainer">
-              <h1 className="h1Hello">Hello, user</h1>
+              <h1 className="h1Hello">{`Hello, ${data?.name} `}</h1>
             </div>
             <div className="emblemContainerAll">
               <div className="emblemContainer">{page}</div>
