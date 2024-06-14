@@ -70,6 +70,7 @@
   display: flex;
   height: 250px;
   width: 250px;
+  background-color: #0c0c0c;
 }
 .containerShowImage {
   height: 70%;
@@ -95,10 +96,38 @@
   background-color: #ffb905;
   border-radius: 10px;
   cursor: pointer;
+  font-family: 'Poppins';
+  color: #fff;
+  font-size: 20px;
 }
 .buttonChangeProfilePicture:hover {
   background-color: #b3881a;
 }
 .buttonChangeProfilePicture:active {
+  transform: scale(0.98);
+}
+.buttonSaveContainer {
+  /* background-color: yellow; */
+  height: 15%;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.buttonSaveContainer > button {
+  border: none;
+  height: 60px;
+  width: 300px;
+  border-radius: 10px;
+  background-color: #ffb905;
+  cursor: pointer;
+  font-family: 'Poppins';
+  color: #fff;
+  font-size: 20px;
+}
+.buttonSaveContainer > button:hover {
+  background-color: #b3881a;
+}
+.buttonSaveContainer > button:active {
   transform: scale(0.98);
 }

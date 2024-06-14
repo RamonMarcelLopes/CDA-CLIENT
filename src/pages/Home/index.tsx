@@ -44,6 +44,7 @@ const HomePage = () => {
                 onClick={() => {
                   setPage(<CardList />);
                   setCurrentPage('cardList');
+                  getUser();
                 }}
                 className={`ImageOption ${
                   currentePage == 'cardList' ? 'black' : 'gray'
@@ -55,6 +56,7 @@ const HomePage = () => {
                 onClick={() => {
                   setPage(<RedeemEmblem />);
                   setCurrentPage('RedeemEmblem');
+                  getUser();
                 }}
                 className={`ImageOption ${
                   currentePage == 'RedeemEmblem' ? 'black' : 'gray'
@@ -66,6 +68,7 @@ const HomePage = () => {
                 onClick={() => {
                   setPage(<UserSettings />);
                   setCurrentPage('UserSettings');
+                  getUser();
                 }}
                 className={`ImageOption ${
                   currentePage == 'UserSettings' ? 'black' : 'gray'
