@@ -88,3 +88,14 @@
   font-family: 'Roboto Slab';
   font-size: 20px;
 }
+
+.h2SignUp {
+  font-family: 'Roboto Slab';
+  text-align: center;
+}
+
+.h2SignUp > strong {
+  color: #ffb905;
+  font-family: 'Roboto Slab';
+  cursor: pointer;
+}
