@@ -23,4 +23,13 @@ const updateUserService = {
       .then((response: any) => response)
       .catch((error: any) => console.log(error)),
 };
-export { findUserService, updateUserService };
+
+const createUserService = {
+  createUser: (data: UserEdit) => {
+    api
+      .post(`user`, data)
+      .then((response: any) => response)
+      .catch((error: any) => console.log(error));
+  },
+};
+export { findUserService, updateUserService, createUserService };

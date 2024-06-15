@@ -6,9 +6,10 @@ import CDA from '../../assets/CDA.png';
 import { useState } from 'react';
 import { loginService } from '../../services/login';
 import { useNavigate } from 'react-router-dom';
+import { createUserService } from '../../services/user';
 
 const Login = () => {
-  let [currentMethod, setCurrentMethos] = useState('login');
+  let [currentMethod, setCurrentMethod] = useState('login');
   const [valuesLogin, setValuesLogin] = useState({
     email: '',
     password: '',
@@ -49,8 +50,11 @@ const Login = () => {
     }
     navigate('/home');
   };
-  const RegisterUser = (e: React.SyntheticEvent) => {
+  const RegisterUser = async (e: React.SyntheticEvent) => {
     e.preventDefault();
+    let response = createUserService.createUser(valuesRegister);
+    setCurrentMethod('login');
+    console.log(valuesRegister);
   };
 
   return (
@@ -90,7 +94,7 @@ const Login = () => {
               </form>
               <h2 className="h2SignUp">
                 Don't have an account?
-                <strong onClick={() => setCurrentMethos('register')}>
+                <strong onClick={() => setCurrentMethod('register')}>
                   Sign up
                 </strong>
               </h2>
@@ -131,7 +135,7 @@ const Login = () => {
               </form>
               <h2 className="h2SignUp">
                 Have an account?
-                <strong onClick={() => setCurrentMethos('login')}>
+                <strong onClick={() => setCurrentMethod('login')}>
                   Log in
                 </strong>
               </h2>

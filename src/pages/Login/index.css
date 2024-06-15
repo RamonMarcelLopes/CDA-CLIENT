@@ -87,6 +87,10 @@
   color: #fff;
   font-family: 'Roboto Slab';
   font-size: 20px;
+  cursor: pointer;
+}
+.sendButton:hover {
+  background-color: #b3881a;
 }
 
 .h2SignUp {

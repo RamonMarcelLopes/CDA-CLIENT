@@ -9,4 +9,12 @@ const findAllService = {
       })
       .catch((error: any) => console.log(error)),
 };
-export { findAllService };
+
+const EmblemService = {
+  getNewEmblem: () =>
+    api
+      .patch(`user/add/emblem`)
+      .then((response: any) => response)
+      .catch((error: any) => console.log(error)),
+};
+export { findAllService, EmblemService };

@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background-color: aqua; */
 }
 .buttomRedeem {
   height: 150px;
@@ -23,4 +24,87 @@
 }
 .buttomRedeem:active {
   transform: scale(0.98);
+}
+
+gif,
+.static-frame {
+  width: 30%;
+  height: auto;
+  display: block;
+}
+.static-frame {
+  display: none;
+}
+
+.buttonRedeemContainer .static-frame {
+  display: block;
+}
+
+.none {
+  display: none;
+  transition: ease-in-out;
+  transition-duration: 5s;
+}
+
+.card {
+  height: 450px;
+  width: 350px;
+  background-color: #272525;
+  animation: pulse 1s infinite;
+  justify-content: center;
+  align-items: flex-end;
+  border-radius: 10px;
+  margin: 1.5%;
+  flex-direction: column;
+}
+.imageContainer {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imageEmblemRedeem {
+  height: 80%;
+  width: 99%;
+}
+.yellowBar {
+  background-color: #ffc046;
+  height: 10%;
+  width: 100%;
+  border-radius: 0px 0px 10px 10px;
+  display: flex;
+  align-items: center;
+}
+.h2Name {
+  color: #272525;
+  margin-left: 5%;
+  font-family: 'Poppins';
+  font-size: 18px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+button:disabled {
+  background-color: gray;
+  cursor: default;
+}
+button:disabled:hover {
+  background-color: gray;
+}
+button:disabled:active {
+  transform: scale(1);
 }
