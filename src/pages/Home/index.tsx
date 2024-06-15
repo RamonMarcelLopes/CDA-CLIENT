@@ -2,12 +2,14 @@ import CDA from '../../assets/CDA.png';
 import user from '../../assets/user.svg';
 import home from '../../assets/home.png';
 import emblem from '../../assets/emblem.svg';
+import logout from '../../assets/logout.png';
 import CardList from '../../components/CardList';
 import RedeemEmblem from '../../components/Redeem';
 import './index.css';
 import { useEffect, useState } from 'react';
 import UserSettings from '../../components/UserSettings';
 import { findUserService } from '../../services/user';
+import { useNavigate } from 'react-router-dom';
 
 export type User = {
   id: string;
@@ -22,6 +24,8 @@ const HomePage = () => {
   let [currentePage, setCurrentPage] = useState<string>('cardList');
   let [page, setPage] = useState(<CardList />);
   let [data, setdata] = useState<User>();
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     getUser();
@@ -50,7 +54,7 @@ const HomePage = () => {
                   currentePage == 'cardList' ? 'black' : 'gray'
                 }  `}
               >
-                <img className="iconOption" src={home} alt="" />
+                <img className="iconOption" src={home} alt="home icon " />
               </div>
               <div
                 onClick={() => {
@@ -62,7 +66,7 @@ const HomePage = () => {
                   currentePage == 'RedeemEmblem' ? 'black' : 'gray'
                 }  `}
               >
-                <img className="iconOption" src={emblem} alt="" />
+                <img className="iconOption" src={emblem} alt="emblem icon" />
               </div>
               <div
                 onClick={() => {
@@ -74,7 +78,17 @@ const HomePage = () => {
                   currentePage == 'UserSettings' ? 'black' : 'gray'
                 }  `}
               >
-                <img className="iconOption" src={user} alt="" />
+                <img className="iconOption" src={user} alt="user icon" />
+              </div>
+
+              <div
+                onClick={() => {
+                  localStorage.removeItem('jwtLocalStorage');
+                  navigate('/');
+                }}
+                className={`ImageOption `}
+              >
+                <img className="iconOption" src={logout} alt="logout-icon" />
               </div>
             </div>
           </div>

@@ -1,16 +1,29 @@
 import { useEffect, useState } from 'react';
-import { User } from '../../pages/Home';
+
 import './index.css';
 import {
   UserEdit,
   findUserService,
   updateUserService,
 } from '../../services/user';
+import toast from 'react-hot-toast';
+import { User } from '../../pages/Home';
+import { useNavigate } from 'react-router-dom';
+
+type UserChange = {
+  name?: string;
+  profilePicture?: string;
+  email?: string;
+  password?: string;
+};
 
 const UserSettings = () => {
   let [data, setdata] = useState<User>();
-  let [userData, setUserData] = useState({});
+  let [userData, setUserData] = useState<UserChange>({});
   let [att, setAtt] = useState<boolean>(false);
+  let [show, setShow] = useState(false);
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     getUser();
@@ -31,6 +44,32 @@ const UserSettings = () => {
     let response: any = await updateUserService
       .updateUser(userData)
       .then(() => setAtt(!att));
+
+    toast('User updated successfully', {
+      icon: '✅',
+      style: {
+        borderRadius: '10px',
+        background: '#ffb905',
+        color: '#fff',
+        fontFamily: 'Poppins',
+        border: '1px solid #fff',
+      },
+    });
+
+    if (userData.email || userData.password) {
+      localStorage.removeItem('jwtLocalStorage');
+      navigate('/');
+      toast('please relog', {
+        icon: '🔄',
+        style: {
+          borderRadius: '10px',
+          background: '#61ff05',
+          color: '#161515',
+          fontFamily: 'Poppins',
+          border: '1px solid #fff',
+        },
+      });
+    }
   };
 
   let getUser = async () => {
@@ -78,16 +117,25 @@ const UserSettings = () => {
                 defaultValue={data?.email}
                 onChange={handleChangeValues}
               />
-              <label className="labelEdit" htmlFor="password">
-                Password:
-              </label>
-              <input
-                name="password"
-                placeholder="senha"
-                className="inputForm"
-                type="password"
-                onChange={handleChangeValues}
-              />
+              <div className="password">
+                <label className="labelEdit" htmlFor="password">
+                  Password:
+                </label>
+                <input
+                  name="password"
+                  placeholder="senha"
+                  className="inputForm"
+                  type={show == true ? 'text' : 'password'}
+                  onChange={handleChangeValues}
+                />
+                <button
+                  onClick={() => setShow(!show)}
+                  type="button"
+                  className="show"
+                >
+                  {show ? 'hide' : 'Show'}
+                </button>
+              </div>
               <div className="buttonSaveContainer">
                 <button type="submit"> save </button>
               </div>

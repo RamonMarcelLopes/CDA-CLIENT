@@ -10,6 +10,7 @@ import { createUserService } from '../../services/user';
 
 const Login = () => {
   let [currentMethod, setCurrentMethod] = useState('login');
+  let [show, setShow] = useState(false);
   const [valuesLogin, setValuesLogin] = useState({
     email: '',
     password: '',
@@ -47,8 +48,8 @@ const Login = () => {
     if (jwt) {
       localStorage.setItem('jwtLocalStorage', jwt);
       console.log(jwt);
+      navigate('/home');
     }
-    navigate('/home');
   };
   const RegisterUser = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -77,14 +78,25 @@ const Login = () => {
                     type="email"
                     name="email"
                     onChange={handleChangesValuesLogin}
+                    defaultValue={valuesLogin.email}
+                    value={valuesLogin.email}
                   />
                   <input
                     className="input"
-                    type="password"
+                    type={show ? 'text' : 'password'}
                     placeholder="Password"
                     name="password"
                     onChange={handleChangesValuesLogin}
+                    defaultValue={valuesLogin.password}
+                    value={valuesLogin.password}
                   />
+                  <button
+                    onClick={() => setShow(!show)}
+                    className="buttonShow"
+                    type="button"
+                  >
+                    {show ? 'hide' : 'show'}
+                  </button>
                 </div>
                 <div className="buttonCOntainer">
                   <button className="sendButton" type="submit">
@@ -111,20 +123,34 @@ const Login = () => {
                     type="email"
                     name="email"
                     onChange={handleChangesValuesRegister}
+                    defaultValue={valuesRegister.email}
+                    value={valuesRegister.email}
                   />
+
                   <input
                     className="input"
-                    type="password"
+                    type={show ? 'text' : 'password'}
                     placeholder="Password"
                     name="password"
                     onChange={handleChangesValuesRegister}
+                    defaultValue={valuesRegister.password}
+                    value={valuesRegister.password}
                   />
+                  <button
+                    onClick={() => setShow(!show)}
+                    type="button"
+                    className="buttonShow2"
+                  >
+                    {show ? 'hide' : 'show'}
+                  </button>
                   <input
                     className="input"
                     placeholder="Name"
                     type="text"
                     name="name"
                     onChange={handleChangesValuesRegister}
+                    defaultValue={valuesRegister.name}
+                    value={valuesRegister.name}
                   />
                 </div>
                 <div className="buttonCOntainer">

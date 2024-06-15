@@ -1,3 +1,4 @@
+import toast from 'react-hot-toast';
 import api from './api';
 
 interface userLoginObj {
@@ -14,7 +15,7 @@ const loginService = {
     api
       .post('/auth', values)
       .then((response: any) => response)
-      .catch((error: any) => console.log('ERRO NA CHAMADA:', error)),
+      .catch((error: any) => toast.error('invalid credentials')),
 };
 
 const registerService = {

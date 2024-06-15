@@ -1,4 +1,3 @@
-import toast from 'react-hot-toast';
 import { EmblemService, findAllService } from '../../services/emblem';
 import './index.css';
 import { useEffect, useState } from 'react';

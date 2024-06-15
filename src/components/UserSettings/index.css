@@ -131,3 +131,31 @@
 .buttonSaveContainer > button:active {
   transform: scale(0.98);
 }
+.password {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.show {
+  position: absolute;
+  bottom: 1%;
+  right: 25%;
+  height: 40%;
+  border: none;
+  outline: none;
+  font-family: 'Poppins';
+  border-radius: 5px;
+  background-color: #ffb905;
+  color: #fff;
+  width: 80px;
+}
+.show:hover {
+  background-color: #b3881a;
+  cursor: pointer;
+}
+.show:active {
+  transform: scale(0.98);
+}

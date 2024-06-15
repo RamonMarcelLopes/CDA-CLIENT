@@ -50,7 +50,7 @@
 .inputsContainer {
   height: 80%;
   width: 100%;
-
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,5 +101,39 @@
 .h2SignUp > strong {
   color: #ffb905;
   font-family: 'Roboto Slab';
+  cursor: pointer;
+}
+.buttonShow {
+  position: absolute;
+  height: 40px;
+  width: 60px;
+  bottom: 27%;
+  right: 0%;
+  border: none;
+  outline: none;
+  font-family: 'Poppins';
+  border-radius: 5px 5px 0px 0px;
+  background-color: #ffb905;
+  color: #fff;
+  cursor: pointer;
+}
+.buttonShow:hover {
+  background-color: #b3881a;
+}
+.buttonShow:active {
+  transform: scale(0.98);
+}
+.buttonShow2 {
+  position: absolute;
+  height: 40px;
+  width: 60px;
+  bottom: 41%;
+  right: 0%;
+  border: none;
+  outline: none;
+  font-family: 'Poppins';
+  border-radius: 5px 5px 0px 0px;
+  background-color: #ffb905;
+  color: #fff;
   cursor: pointer;
 }
