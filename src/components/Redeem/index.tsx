@@ -1,6 +1,7 @@
-import { EmblemService } from '../../services/emblem';
+import toast from 'react-hot-toast';
+import { EmblemService, findAllService } from '../../services/emblem';
 import './index.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type Emblem = {
   id: string;
@@ -16,8 +17,16 @@ const RedeemEmblem = () => {
   const [display, setDisplay] = useState('flex');
   const [cardInScreen, setCardInScreen] = useState(false);
   const [data, setData] = useState<Emblem>();
+  const [emblemQuantity, setEmblemQuantity] = useState([]);
+  const [disable, setDisable] = useState(false);
+
+  useEffect(() => {
+    emblemQuantityFunction();
+  }, []);
 
   let redeem = async () => {
+    await emblemQuantityFunction();
+
     let response: any = await EmblemService.getNewEmblem();
 
     setData(response.data);
@@ -35,10 +44,20 @@ const RedeemEmblem = () => {
     }, 7000);
   };
 
+  let emblemQuantityFunction = async () => {
+    let response = await findAllService.userEmblems();
+    setEmblemQuantity(response.data.emblems);
+
+    if (emblemQuantity.length >= 10) {
+      setDisable(true);
+      return false;
+    }
+  };
+
   return (
     <div className="buttonRedeemContainer">
       <button
-        disabled={true}
+        disabled={disable}
         className={`buttomRedeem ${display}`}
         onClick={redeem}
       >
