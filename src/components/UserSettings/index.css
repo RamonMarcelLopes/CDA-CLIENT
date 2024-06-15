@@ -1,5 +1,4 @@
 .EditUserContainerAll {
-  /* background-color: red; */
   height: 100%;
   width: 100%;
   display: flex;
@@ -15,12 +14,10 @@
   flex-direction: row;
 }
 .Form {
-  /* background-color: #23ec69; */
   height: 100%;
   width: 50%;
 }
 .image {
-  /* background-color: #ece223; */
   height: 100%;
   width: 50%;
   display: flex;
@@ -75,7 +72,6 @@
 .containerShowImage {
   height: 70%;
   width: 90%;
-  /* background-color: red; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,7 +80,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: blueviolet; */
   height: 15%;
   width: 100%;
 }
@@ -107,7 +102,6 @@
   transform: scale(0.98);
 }
 .buttonSaveContainer {
-  /* background-color: yellow; */
   height: 15%;
   width: 40%;
   display: flex;
@@ -147,7 +141,7 @@
   border: none;
   outline: none;
   font-family: 'Poppins';
-  border-radius: 5px;
+  border-radius: 5px 5px 0px 0px;
   background-color: #ffb905;
   color: #fff;
   width: 80px;
