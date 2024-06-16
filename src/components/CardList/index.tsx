@@ -16,8 +16,6 @@ const CardList = () => {
   let showEmblem = async () => {
     let response = await findAllService.userEmblems();
     setData(response.data.emblems);
-
-    console.log(data);
   };
 
   return (

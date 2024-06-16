@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { loginService } from '../../services/login';
 import { useNavigate } from 'react-router-dom';
 import { createUserService } from '../../services/user';
+import toast from 'react-hot-toast';
 
 const Login = () => {
   let [currentMethod, setCurrentMethod] = useState('login');
@@ -47,7 +48,7 @@ const Login = () => {
     const jwt = response.data.token;
     if (jwt) {
       localStorage.setItem('jwtLocalStorage', jwt);
-      console.log(jwt);
+
       navigate('/home');
     }
   };
@@ -55,7 +56,7 @@ const Login = () => {
     e.preventDefault();
     let response = createUserService.createUser(valuesRegister);
     setCurrentMethod('login');
-    console.log(valuesRegister);
+    toast.success('User created successfully');
   };
 
   return (

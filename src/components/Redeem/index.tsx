@@ -60,7 +60,7 @@ const RedeemEmblem = () => {
         className={`buttomRedeem ${display}`}
         onClick={redeem}
       >
-        Resgatar Emblema
+        Redeem Emblem
       </button>
 
       {showGif && (
